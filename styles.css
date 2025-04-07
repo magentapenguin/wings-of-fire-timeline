@@ -1,34 +1,75 @@
 @import 'tailwindcss';
 
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('/fa-solid-900.tff') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 @layer components {
     .timeline-item {
-        @apply bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 mb-4 ml-6 relative;
+        @apply bg-white dark:bg-green-800 shadow-md rounded-lg p-4 mb-4 ml-6 relative;
         @variant last {
             @apply mb-0;
         }
         @variant before {
             /* Arrow pointing left */
-            @apply absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-[100%] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent dark:border-r-gray-800 border-r-gray-200;
+            @apply absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-[100%] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent dark:border-r-green-800 border-r-gray-200;
             content: '';
         }
         @variant after {
             /* Dot on the timeline */
-            @apply absolute top-1/2 -left-5.5 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded-full border-2 border-white dark:border-gray-900;
+            @apply absolute top-1/2 -left-5.5 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-gray-200 dark:bg-green-700 rounded-full border-2 border-white dark:border-green-950 pointer-events-none;
             content: '';
         }
         @variant hover {
-            @apply bg-gray-100 dark:bg-gray-900;
+            @apply bg-gray-100 dark:bg-green-900;
             @variant before {
                 /* Arrow pointing right */
-                @apply border-r-gray-100 dark:border-r-gray-900;
+                @apply border-r-gray-100 dark:border-r-green-900;
             }
         }
     }
     .timeline-item.active {
-        @apply bg-blue-100 dark:bg-blue-900;
+        @apply bg-green-100 dark:bg-green-900;
         @variant before {
             /* Arrow pointing right */
-            @apply border-r-blue-100 dark:border-r-blue-900;
+            @apply border-r-green-100 dark:border-r-green-900;
+        }
+    }
+    .timeline-content {
+        @apply max-h-0 overflow-hidden;
+        transition: max-height 500ms;
+    }
+    .timeline-item:has(.timeline-content) .see-more {
+        transition: max-height 500ms;
+        pointer-events: none;
+        @apply text-gray-600 dark:text-gray-400 block max-h-[1.5em] overflow-hidden;
+    }
+    .timeline-item.active:has(.timeline-content) .see-more {
+        @apply max-h-0;
+        @variant after {
+            @apply rotate-90;
+        }
+        
+    }
+    .see-more {
+        @apply hidden;
+        @variant after {
+            font-family: 'FontAwesome';
+            @apply ml-0.5 cursor-pointer rotate-0 transition-[rotate] duration-300 content-[''];
+        }
+    }
+    .divider {
+        @apply relative w-full flex items-center justify-center text-gray-200 dark:text-gray-600 gap-2 pl-6 mb-4 font-semibold;
+        @variant after {
+            @apply w-full h-0.5 bg-gray-200 dark:bg-gray-600 flex-1 rounded-4xl;
+            content: '';
+        }
+        @variant before {
+            @apply w-full h-0.5 bg-gray-200 dark:bg-gray-600 flex-1 rounded-4xl;
+            content: '';
         }
     }
 }
