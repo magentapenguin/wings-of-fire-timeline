@@ -1,12 +1,5 @@
 @import 'tailwindcss';
 
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('/fa-solid-900.tff') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-
 @layer components {
     .timeline-item {
         @apply bg-white dark:bg-green-800 shadow-md rounded-lg p-4 mb-4 ml-6 relative;
@@ -57,8 +50,7 @@
     .see-more {
         @apply hidden;
         @variant after {
-            font-family: 'FontAwesome';
-            @apply ml-0.5 cursor-pointer rotate-0 transition-[rotate] duration-300 content-[''];
+            @apply ml-1 cursor-pointer rotate-0 transition-[rotate] duration-300 content-[' ▾'];
         }
     }
     .divider {
