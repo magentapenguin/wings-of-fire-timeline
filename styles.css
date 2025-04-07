@@ -71,5 +71,13 @@
             @apply w-full h-0.5 bg-gray-200 dark:bg-gray-600 flex-1 rounded-4xl;
             content: '';
         }
+        @variant after {
+            /* Dot on the timeline */
+            @apply bg-blue-500 dark:bg-blue-700;
+        }
+    }
+    .timeline-content {
+        @apply max-h-0 overflow-hidden;
+        transition: max-height 0.2s ease-in-out;
     }
 }
