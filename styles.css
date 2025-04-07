@@ -15,7 +15,7 @@
         }
         @variant before {
             /* Arrow pointing left */
-            @apply absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-[100%] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent dark:border-r-green-800 border-r-gray-200;
+            @apply absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-[100%] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-gray-200 dark:border-r-green-800;
             content: '';
         }
         @variant after {
@@ -70,10 +70,6 @@
         @variant before {
             @apply w-full h-0.5 bg-gray-200 dark:bg-gray-600 flex-1 rounded-4xl;
             content: '';
-        }
-        @variant after {
-            /* Dot on the timeline */
-            @apply bg-blue-500 dark:bg-blue-700;
         }
     }
     .timeline-content {
