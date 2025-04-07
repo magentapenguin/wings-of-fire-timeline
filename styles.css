@@ -50,7 +50,7 @@
     .see-more {
         @apply hidden;
         @variant after {
-            @apply ml-1 cursor-pointer rotate-0 transition-[rotate] duration-300 content-[' ▾'];
+            @apply ml-1 cursor-pointer rotate-0 transition-[rotate] duration-300 content-['▾'];
         }
     }
     .divider {
